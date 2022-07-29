@@ -4,7 +4,7 @@
       <img class="thumb-img" :src="info.thumb_text" alt="">
       <div class="black-info">
         <div class="title">
-          {{info.desc}}{{info.desc}}
+          {{info.desc}}
         </div>
          <div class="bottom-info">
             <div class="publish_time">
