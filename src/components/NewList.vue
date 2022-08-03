@@ -61,7 +61,7 @@ export default {
 
 <style scoped lang="scss">
 .list{
-    margin: 15px 10px 0 10px;
+    margin: 10px 10px 0 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -73,27 +73,35 @@ export default {
     box-sizing: border-box;
     .thumb-img{
         width: 84px;
-        height: 67px;
+        height: 69px;
     }
     .info-box{
-        margin-left: 15px;
         flex: 1;
+        box-sizing: border-box;
+        padding-left: 15px;
+        box-sizing: border-box;
+        overflow: hidden;
+        height: 69px;
         .title{
             width: 100%;
             font-family: 'PingFang SC';
             font-style: normal;
             font-weight: 600;
-            font-size: 16px;
-            line-height: 26px;
+            font-size: 15px;
+            line-height: 15px;
             color: #2B2B2B;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
         .desc{
+            margin-top: 4px;
             font-family: 'PingFang SC';
             font-style: normal;
             font-weight: 400;
             font-size: 13px;
-            line-height: 18px;
-            height: 36px;
+            line-height: 16px;
+            height: 32px;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -103,12 +111,15 @@ export default {
         }
         .bottom-info{
             display: flex;
-            line-height: 24px;
             font-size: 10px;
+            margin-top: 4px;
             color: #969696;
             justify-content: space-between;
             .right{
                 display: flex;
+                img{
+                    width: 14px;
+                }
                 div{
                     display: flex;
                     align-items: center;

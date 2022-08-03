@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="channel">
      <keep-alive :include="'home'">
-    <router-view></router-view>    
+        <router-view></router-view>    
      </keep-alive>
   </div>
 </template>
@@ -26,6 +26,17 @@ export default {
       const channel = localStorage.getItem('channel')
       this.channel = channel || 'ly'
       this.$store.state.channel = channel
+      this.getConfig()
+    },
+    getConfig(){
+      this.$axios.post('/Config/config',{})
+      .then( res => {
+        console.log(res)
+        if(res.code == 0){
+          this.$store.state.logoUrl = res.data.domain + res.data.icon
+          this.$store.state.logoLink = res.data.official_url
+        }
+      })
     }
   }
 }

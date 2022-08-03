@@ -1,31 +1,34 @@
 <template>
-  <div class="detail" v-if="info">
-    <div class="top-info">
-      <img class="thumb-img" :src="info.thumb_text" alt="">
-      <div class="black-info">
-        <div class="title">
-          {{info.desc}}
-        </div>
-         <div class="bottom-info">
-            <div class="publish_time">
-                {{info.publish_time_text}}
-            </div>
-            <div class="right">
-               <div>
-                 <img :src="require('../../public/static/head-' +$store.state.channel+ '.png')" alt="">
-                 {{info.author}}
-               </div>
+  <div class="detail" ref="topInfo">
+    <template v-if="info">
+      <div class="top-info">
+        <div class="back-icon" :style="margin" @click="goback"><Icon name="arrow-left" /></div>
+        <img class="thumb-img" :src="info.thumb_text" alt="">
+        <div class="black-info">
+          <div class="title">
+            {{info.title}}
+          </div>
+          <div class="bottom-info">
+              <div class="publish_time">
+                  {{info.publish_time_text}}
+              </div>
+              <div class="right">
                 <div>
-                    <Icon name="eye-o"></Icon>
-                    {{Number(info.virtual_views) + Number(info.real_views)}}
+                  <img :src="require('../../public/static/head-' +$store.state.channel+ '.png')" alt="">
+                  {{info.author}}
                 </div>
-            </div>
+                  <div>
+                      <Icon name="eye-o"></Icon>
+                      {{Number(info.virtual_views) + Number(info.real_views)}}
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="content" v-html="info.content">
+      <div class="content" v-html="info.content">
 
-    </div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -37,7 +40,10 @@ export default {
   data() {
     return {
       id:'',
-      info: null
+      info: null,
+      margin:{
+        'margin-left':'-250px'
+      }
     }
   },
   components: {
@@ -55,14 +61,23 @@ export default {
         this.id = this.$route.query.id
         this.queryDetail()
       }
+      this.$nextTick( () => {
+        const width = this.$refs.topInfo.scrollWidth
+        this.margin= {
+          'margin-left': (0 - width/2 + 5) + 'px'
+        }
+      })
   },
   methods:{
+    goback(){
+      this.$router.go(-1)
+    },
     queryDetail(){
       this.info = null
       this.$axios.post('/Article/info',{
         id: this.id
       }).then( res => {
-        console.log(res)
+        this.$bus.emit('addReadTime',this.id)
         if(res.code == 0){
           this.info = res.data
         }
@@ -78,6 +93,17 @@ export default {
   .top-info{
     width: 100%;
     position: relative;
+    .back-icon{
+      font-size: 24px;
+      color: #ffffff;
+      position: fixed;
+      background: rgba(0,0,0,.4);
+      top: 5px;
+      left: 50%;
+      padding: 2px 2px 2px 1px;
+      z-index: 999;
+      cursor: pointer;
+    }
     img{
       width: 100%;
     }

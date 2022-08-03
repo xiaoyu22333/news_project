@@ -3,8 +3,7 @@
        <div class="header">
           <div class="title">
             <div class="logo">
-              <img class="home-icon" :src="homeIcon" alt="">
-              <img class="logo-icon" :src="logoIcon" alt="">
+              <img class="logo-icon" :src="$store.state.logoUrl" alt="" @click="gopage">
             </div>
             热门资讯
           </div>
@@ -38,7 +37,8 @@ export default {
       finished: false,
       refreshing: false,
       page: 1,
-      limit: 8
+      limit: 10,
+      scrollTop: 0
     }
   },
   components: {
@@ -49,10 +49,30 @@ export default {
   computed: {
 
   },
+  activated(){
+     document.querySelector('.content').scrollTop = this.scrollTop
+  },
   created() {
-      
+      this.$bus.on('addReadTime', this.addReadTime)
+  },
+  beforeDestroy(){
+      this.$bus.on('addReadTime', this.addReadTime)
+  },
+  beforeRouteLeave(to,from,next){
+    this.scrollTop = document.querySelector('.content').scrollTop
+    console.log(this.scrollTop)
+    next()
   },
   methods:{
+    gopage(){
+      window.open(this.$store.state.logoLink)
+    },
+    addReadTime(params){
+      const data = this.list.filter( item => item.id == params)
+      if(data.length > 0){
+        data[0].real_views++
+      }
+    },
      async onLoad() {
       this.loadList()
     },
@@ -83,6 +103,7 @@ export default {
     },
     onRefresh() {
       this.page = 1
+      this.scrollTop = 0
       // 清空列表数据
       this.finished = false;
       // 重新加载数据
