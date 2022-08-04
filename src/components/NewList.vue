@@ -56,14 +56,10 @@ export default {
         })
     },
     changeNumber(num){
-        if(num < 1000){
+        if(num < 10000){
             return num
-        }else if(1000 <= num && num < 999999){
-            return (num/1000).toFixed(2) + 'k'
-        }else if(1000000 <= num){
-            return (num/1000000).toFixed(2) + 'm'
         }else{
-            return 0
+             return (num/10000).toFixed(2) + 'W'
         }
     }
   }
@@ -133,9 +129,9 @@ export default {
                 }
                 .readTime{
                     span{
-                        width: 40px;
+                        width: 58px;
                         display: inline-block;
-                        padding-left: 3px;
+                        padding-left: 2px;
                     }
                 }
                 div{
