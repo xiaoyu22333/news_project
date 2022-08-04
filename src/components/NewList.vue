@@ -17,9 +17,9 @@
                  <img :src="require('../../public/static/head-' +$store.state.channel+ '.png')" alt="">
                  {{item.author}}
                </div>
-                <div>
+                <div class="readTime">
                     <Icon name="eye-o"></Icon>
-                    {{Number(item.virtual_views) + Number(item.real_views)}}
+                    <span>{{changeNumber(Number(item.virtual_views) + Number(item.real_views))}}</span>
                 </div>
             </div>
         </div>
@@ -54,6 +54,17 @@ export default {
                 id: this.item.id
             }
         })
+    },
+    changeNumber(num){
+        if(num < 1000){
+            return num
+        }else if(1000 <= num && num < 999999){
+            return (num/1000).toFixed(2) + 'k'
+        }else if(1000000 <= num){
+            return (num/1000000).toFixed(2) + 'm'
+        }else{
+            return 0
+        }
     }
   }
 }
@@ -119,6 +130,13 @@ export default {
                 display: flex;
                 img{
                     width: 14px;
+                }
+                .readTime{
+                    span{
+                        width: 40px;
+                        display: inline-block;
+                        padding-left: 3px;
+                    }
                 }
                 div{
                     display: flex;
