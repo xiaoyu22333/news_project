@@ -79,8 +79,8 @@ export default {
     border-radius: 4px;
     box-sizing: border-box;
     .thumb-img{
-        width: 84px;
-        height: 69px;
+        width: 88px;
+        height: 66px;
     }
     .info-box{
         flex: 1;
@@ -88,7 +88,7 @@ export default {
         padding-left: 15px;
         box-sizing: border-box;
         overflow: hidden;
-        height: 69px;
+        height: 66px;
         .title{
             width: 100%;
             font-family: 'PingFang SC';
@@ -107,8 +107,8 @@ export default {
             font-style: normal;
             font-weight: 400;
             font-size: 13px;
-            line-height: 16px;
-            height: 32px;
+            line-height: 14px;
+            height: 28px;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
