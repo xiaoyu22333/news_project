@@ -41,6 +41,7 @@ export default {
     return {
       id:'',
       info: null,
+      screenWidth: document.body.clientWidth,
       margin:{
         'margin-left':'-250px'
       }
@@ -51,6 +52,23 @@ export default {
   },
   computed: {
 
+  },
+  watch:{
+    screenWidth(){
+      const width = this.$refs.topInfo.scrollWidth
+      this.margin= {
+        'margin-left': (0 - width/2 + 5) + 'px'
+      }
+    }
+  },
+  mounted(){
+    const that = this
+    window.onresize = () => {
+        return (() => {
+            window.screenWidth = document.body.clientWidth
+            that.screenWidth = window.screenWidth
+        })()
+    }
   },
   created() {
       if(!this.$route.query.id || this.$route.query.id == ''){
@@ -70,7 +88,9 @@ export default {
   },
   methods:{
     goback(){
-      this.$router.go(-1)
+      this.$router.push({
+          path:'/'
+        })
     },
     queryDetail(){
       this.info = null
