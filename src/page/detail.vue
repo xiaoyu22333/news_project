@@ -19,7 +19,7 @@
                 </div>
                   <div>
                       <Icon name="eye-o"></Icon>
-                      {{Number(info.virtual_views) + Number(info.real_views)}}
+                      {{changeNumber(Number(info.virtual_views) + Number(info.real_views))}}
                   </div>
               </div>
           </div>
@@ -87,6 +87,13 @@ export default {
       })
   },
   methods:{
+    changeNumber(num){
+        if(num < 10000){
+            return num
+        }else{
+             return (num/10000).toFixed(2) + 'W'
+        }
+    },
     goback(){
       this.$router.push({
           path:'/'
