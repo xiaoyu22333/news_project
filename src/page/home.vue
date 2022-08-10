@@ -142,7 +142,7 @@ export default {
     position: relative;
   }
   .logo{
-    height: 100%;
+    height: 50px;
     position: absolute;
     display: flex;
     align-items: center;
