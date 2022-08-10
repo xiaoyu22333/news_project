@@ -73,7 +73,7 @@ export default {
     flex-direction: row;
     align-items: center;
     padding: 6px 16px;
-    height: 96px;
+    height: 90px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.22);
     border-radius: 4px;
@@ -94,7 +94,7 @@ export default {
             font-family: 'PingFang SC';
             font-style: normal;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 15px;
             color: #2B2B2B;
             overflow: hidden;
@@ -106,7 +106,7 @@ export default {
             font-family: 'PingFang SC';
             font-style: normal;
             font-weight: 400;
-            font-size: 13px;
+            font-size: 12px;
             line-height: 14px;
             height: 28px;
             overflow: hidden;
@@ -118,7 +118,7 @@ export default {
         }
         .bottom-info{
             display: flex;
-            font-size: 10px;
+            font-size: 12px;
             margin-top: 4px;
             color: #969696;
             justify-content: space-between;
