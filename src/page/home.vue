@@ -122,13 +122,13 @@ export default {
 .header{
   width: 100%;
   height: 50px;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0px;
   background: #FFFFFF;
   box-shadow: inset 0px -0.33px 0px #B6B6B6;
   padding: 0 10px;
   box-sizing: border-box;
+  max-width: 500px;
   .title{
     width: 100%;
     height: 100%;
