@@ -5,10 +5,11 @@
         <div class="back-icon" :style="margin" @click="goback"><Icon name="arrow-left" /></div>
         <img class="thumb-img" :src="info.thumb_text" alt="">
         <div class="black-info">
-          <div class="title">
-            {{info.title}}
-          </div>
-          <div class="bottom-info">
+          <div>
+            <div class="title">
+              {{info.title}}
+            </div>
+            <div class="bottom-info">
               <div class="publish_time">
                   {{info.publish_time_text}}
               </div>
@@ -21,6 +22,7 @@
                       <Icon name="eye-o"></Icon> {{changeNumber(Number(info.virtual_views) + Number(info.real_views))}}
                   </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -119,6 +121,7 @@ export default {
   .top-info{
     width: 100%;
     position: relative;
+    font-size: 0;
     .back-icon{
       font-size: 24px;
       color: #ffffff;
@@ -140,9 +143,14 @@ export default {
       left: 0;
       bottom: 0;
       background:rgba(0,0,0,.6);
-      padding: 10px;
+      padding: 0 10px;
       box-sizing: border-box;
       height: 86px;
+      display: flex;
+      align-items: center;
+      &>div{
+        width: 100%;
+      }
       .title{
         width: 100%;
         color: #ffffff;
@@ -174,6 +182,9 @@ export default {
                 img{
                     margin-right: 4px;
                     width: 16px;
+                }
+                i{
+                  margin-right: 2px;
                 }
             }
             &>div:last-child{
