@@ -81,14 +81,14 @@ export default {
     .thumb-img{
         width: 88px;
         height: 66px;
+        border-radius: 2px;
     }
     .info-box{
         flex: 1;
         box-sizing: border-box;
-        padding-left: 15px;
+        padding-left: 8px;
         box-sizing: border-box;
         overflow: hidden;
-        height: 66px;
         .title{
             width: 100%;
             font-family: 'PingFang SC';
@@ -107,8 +107,8 @@ export default {
             font-style: normal;
             font-weight: 400;
             font-size: 12px;
-            line-height: 14px;
-            height: 28px;
+            line-height: 16px;
+            height: 32px;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -119,7 +119,8 @@ export default {
         .bottom-info{
             display: flex;
             font-size: 12px;
-            margin-top: 4px;
+            line-height: 14px;
+            margin-top: 7px;
             color: #969696;
             justify-content: space-between;
             .right{
@@ -129,7 +130,7 @@ export default {
                 }
                 .readTime{
                     span{
-                        width: 58px;
+                        width: 48px;
                         display: inline-block;
                         padding-left: 2px;
                     }

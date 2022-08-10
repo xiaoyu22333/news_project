@@ -18,8 +18,7 @@
                   {{info.author}}
                 </div>
                   <div>
-                      <Icon name="eye-o"></Icon>
-                      {{changeNumber(Number(info.virtual_views) + Number(info.real_views))}}
+                      <Icon name="eye-o"></Icon> {{changeNumber(Number(info.virtual_views) + Number(info.real_views))}}
                   </div>
               </div>
           </div>
@@ -82,7 +81,7 @@ export default {
       this.$nextTick( () => {
         const width = this.$refs.topInfo.scrollWidth
         this.margin= {
-          'margin-left': (0 - width/2 + 5) + 'px'
+          'margin-left': (0 - width/2 + 16) + 'px'
         }
       })
   },
@@ -125,11 +124,12 @@ export default {
       color: #ffffff;
       position: fixed;
       background: rgba(0,0,0,.4);
-      top: 5px;
+      top: 11px;
       left: 50%;
       padding: 2px 2px 2px 1px;
       z-index: 999;
       cursor: pointer;
+      border-radius: 4px;
     }
     img{
       width: 100%;
@@ -142,14 +142,16 @@ export default {
       background:rgba(0,0,0,.6);
       padding: 10px;
       box-sizing: border-box;
+      height: 86px;
       .title{
         width: 100%;
         color: #ffffff;
         font-family: 'PingFang SC';
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 14px;
+        line-height: 20px;
+        height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -158,12 +160,14 @@ export default {
       }
       .bottom-info{
         margin-top: 10px;
+        line-height: 16px;
         display: flex;
         font-size: 10px;
         color: #ffffff;
         justify-content: space-between;
         .right{
             display: flex;
+            align-items: center;
             div{
                 display: flex;
                 align-items: center;
