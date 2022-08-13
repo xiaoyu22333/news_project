@@ -147,7 +147,7 @@ export default {
     display: flex;
     align-items: center;
     img{
-      height: 100%;
+      height: 38px;
     }
   }
 }

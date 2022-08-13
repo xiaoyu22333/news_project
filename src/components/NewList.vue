@@ -130,7 +130,7 @@ export default {
                 }
                 .readTime{
                     span{
-                        width: 48px;
+                        width: 55px;
                         display: inline-block;
                         padding-left: 2px;
                     }
