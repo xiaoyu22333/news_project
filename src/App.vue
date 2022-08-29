@@ -33,7 +33,7 @@ export default {
       .then( res => {
         console.log(res)
         if(res.code == 0){
-          this.$store.state.logoUrl = res.data.domain + res.data.icon
+          this.$store.state.logoUrl = res.data.icon
           this.$store.state.logoLink = res.data.official_url
         }
       })
