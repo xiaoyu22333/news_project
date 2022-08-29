@@ -198,7 +198,7 @@ export default {
 .content{
   font-size: 14px;
   padding: 20px 10px;
-  background: #f7f7f7;
+  background: #fff;
   overflow-x: hidden;
 }
 </style>
