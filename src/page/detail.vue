@@ -118,6 +118,8 @@ export default {
 <style scoped lang="scss">
 .detail{
   width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
   .top-info{
     width: 100%;
     position: relative;
