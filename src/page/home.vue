@@ -9,14 +9,15 @@
           </div>
        </div>
        <div class="content">
+        <PullRefresh v-model="refreshing" @refresh="onRefresh">
           <List
               v-model="loading"
               :finished="finished"
-              finished-text="没有更多了"
               @load="onLoad"
             >
               <NewList v-for="(item,index) in list" :key="index" :item="item"/>
             </List>
+        </PullRefresh>
        </div>
   </div>
 </template>
@@ -115,10 +116,14 @@ export default {
 
 <style scoped lang="scss">
 .container{
+  width: 100%;
+  position: absolute;
   display: flex;
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  left: 0;
+  top: 0;
 }
 .header{
   width: 100%;
@@ -152,10 +157,10 @@ export default {
   }
 }
 .content{
+  width: 100%;
   height: calc(100vh - 50px);
   overflow: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-  position: relative;
 }
 </style>
