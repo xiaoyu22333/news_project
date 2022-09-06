@@ -9,7 +9,6 @@
           </div>
        </div>
        <div class="content">
-        <PullRefresh v-model="refreshing" @refresh="onRefresh">
           <List
               v-model="loading"
               :finished="finished"
@@ -18,7 +17,6 @@
             >
               <NewList v-for="(item,index) in list" :key="index" :item="item"/>
             </List>
-        </PullRefresh>
        </div>
   </div>
 </template>
