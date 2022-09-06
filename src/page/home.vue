@@ -117,12 +117,13 @@ export default {
 
 <style scoped lang="scss">
 .container{
-  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 .header{
   width: 100%;
   height: 50px;
-  position: fixed;
   top: 0;
   background: #FFFFFF;
   box-shadow: inset 0px -0.33px 0px #B6B6B6;
