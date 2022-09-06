@@ -162,5 +162,6 @@ export default {
   overflow: hidden;
   overflow-y: auto;
   box-sizing: border-box;
+  padding-bottom: 90px;
 }
 </style>
