@@ -8,7 +8,7 @@
             热门资讯
           </div>
        </div>
-       <div class="content">
+       <div class="content" :class="isSafari ? 'isSafari' : ''">
         <PullRefresh v-model="refreshing" @refresh="onRefresh">
           <List
               v-model="loading"
@@ -110,6 +110,17 @@ export default {
       this.loading = true;
       this.onLoad();
     },
+    isSafari(){
+        var ua = navigator.userAgent.toLowerCase();
+        console.log(ua)
+        if (ua.indexOf('applewebkit') > -1 && ua.indexOf('mobile') > -1 && ua.indexOf('safari') > -1 &&
+            ua.indexOf('linux') === -1 && ua.indexOf('android') === -1 && ua.indexOf('chrome') === -1 &&
+            ua.indexOf('ios') === -1 && ua.indexOf('browser') === -1) {
+            return true;
+        }else{
+            return false;
+        }
+    }
   }
 }
 </script>
@@ -162,6 +173,8 @@ export default {
   overflow: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-  padding-bottom: 90px;
+  &.isSafari{
+    padding-bottom: 90px;
+  }
 }
 </style>
